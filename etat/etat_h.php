@@ -16,7 +16,7 @@
 		$txtStartDate = $_POST['txtStartDate'];
 		$txtEndDate = $_POST['txtEndDate'];
 		$query = mysqli_query($conn, 
-			"SELECT UserId, Code, Dates, H_E, P_E, H_ret FROM t_retard_jours WHERE (Dates BETWEEN '$txtStartDate' AND '$txtEndDate') AND (UserId='$txtUser') AND (Code='$txtCode')");
+			"SELECT UserId, Name, Code, Dates, H_E, P_E, H_ret FROM t_retard_jours WHERE (Dates BETWEEN '$txtStartDate' AND '$txtEndDate') AND (UserId='$txtUser') AND (Code='$txtCode')");
 		$count = mysqli_num_rows($query);
 	}
 ?>
@@ -120,6 +120,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>Matricule</th>
+                                                    <th>Name</th>
                                                     <th>Departement</th>
                                                     <th>Dates</th>
                                                     <th>Heure entrée</th>
@@ -132,6 +133,7 @@
                                         ?>
                                                     <tr>
                                                         <td><?php echo $row["UserId"]; ?></td>
+                                                        <td><?php echo $row['Name']; ?></td>
                                                         <td><?php echo $row["Code"]; ?></td>
                                                         <td><?php echo $row["Dates"]; ?></td>
                                                         <td><?php echo $row["H_E"]; ?></td>
